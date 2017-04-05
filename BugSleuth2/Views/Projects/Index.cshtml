@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BugSleuth2.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="wrap-primary">
+    <div class="container boxed">
+
+        <h2>Current Projects</h2>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <p>
+                @Html.ActionLink("Add New Project", "Create")
+            </p>
+        }
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Assign users", "AssignUsers", "ProjectUsers", new { id = item.Id }, null)<content>&nbsp;|&nbsp;</content>
+                            @Html.ActionLink("View / Unassign users", "UsersOnProject", "ProjectUsers", new { id = item.Id }, null)<content>&nbsp;|&nbsp;</content>
+                            @Html.ActionLink("Edit project", "Edit", new { id = item.Id })<content>&nbsp;|&nbsp;</content>
+                            @Html.ActionLink("Delete project", "Delete", new { id = item.Id })<content>&nbsp;|&nbsp;</content>
+                        }
+                        @Html.ActionLink("View project tickets", "Index", "Tickets", new { projectid = item.Id }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<header id="header-full">
+    <div class="wrap-primary">
+        <div class="container">
+            <h1 class="head-title animated bounceInDown animation-delay-4 ">BugSleuth</h1>
+            <img src="~/img/bug_buddy.png" alt="" class="aligncenter animated bounceIn animation-delay-6" width="10%">
+            <h2 class="secondary-color text-center head-subtitle animated fadeInUp animation-delay-8">by <a href="http://coderfoundry.com" target="_blank" class="secondary-color">Coder Foundry</a></h2>
+            <p class="lead text-center animated fadeInUp animation-delay-10 padding-20">
+                Coder Foundry's elite Bug Tracking software designed to teach the concepts of Code-First database development with SQL Server, Microsoft MVC, ASP.NET identity management, HTML5, Razor, and Bootstrap CSS.
+            </p>
+            @if(!User.Identity.IsAuthenticated)
+            { 
+                <div class="profile-header-btn text-center">
+                    @Html.ActionLink("View as Guest", "LoginAsGuest", "Account", new { token = 1 }, htmlAttributes: new { @class = "btn btn-success btn-lg animated fadeInUp animation-delay-12" })
+                </div>
+                <div class="profile-header-btn text-center" style="margin-top:5px">
+                    @Html.ActionLink("View as Admin", "LoginAsGuest", "Account", null, htmlAttributes: new { @class = "btn btn-success btn-lg animated fadeInUp animation-delay-12" })
+                </div>
+            }
+            <div class="row header-full-icons text-center">
+                <div class="col-xs-12 col-md-3 animated fadeInDown animation-delay-14">
+                    <a href="http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" target="_blank"><span class="icon-ar icon-ar-circle icon-ar-xl-lg icon-ar-white icon-ar-inverse"><i class="fa fa-database"></i></span></a>
+                    <h3>Code-First Database Developement</h3>
+                    <p class="text-center">We introduce students to the concept of Code-First Database Development, the development method of choice for today's .NET developers.</p>
+                </div>
+                <div class="col-xs-12 col-md-3 animated fadeInDown animation-delay-16">
+                    <a href="http://www.asp.net/mvc" target="_blank"><span class="icon-ar icon-ar-circle icon-ar-xl-lg icon-ar-white icon-ar-inverse"><i class="fa fa-gears"></i></span></a>
+                    <h3>MVC and Entity Framework</h3>
+                    <p class="text-center">We help students build secure and efficient C# applications with Microsoft's MVC platform and Entity Framework, a must-have skill for the .NET developer.</p>
+                </div>
+                <div class="col-xs-12 col-md-3 animated fadeInDown animation-delay-18">
+                    <a href="http://www.w3.org/html/logo/" target="_blank"><span class="icon-ar icon-ar-circle icon-ar-xl-lg icon-ar-white icon-ar-inverse"><i class="fa fa-html5"></i></span></a>
+                    <h3>HTML 5</h3>
+                    <p class="text-center">We make Web pages more interactive and responsive with dynamic content using HTML5 and JavaScript, an essential skill for the Web developer of tomorrow.</p>
+                </div>
+                <div class="col-xs-12 col-md-3 animated fadeInDown animation-delay-20">
+                    <a href="http://getbootstrap.com/" target="_blank"><span class="icon-ar icon-ar-circle icon-ar-xl-lg icon-ar-white icon-ar-inverse"><i class="fa fa-bold"></i></span></a>
+                    <h3>Bootstrap 3 CSS</h3>
+                    <p class="text-center">We design and build professional, responsive Web applications using Bootstrap 3 templates, the Web design framework of choice for modern Web developers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

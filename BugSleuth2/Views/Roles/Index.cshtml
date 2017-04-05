@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BugSleuth2.Models.AdminUserViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="wrap-primary">
+    <div class="container boxed">
+
+        <h2>User Roles</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Role
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                    </td>
+                    <td>
+                        @foreach (var role in item.role)
+                        {
+                            @Html.DisplayFor(model => role)
+                            <br/>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Assign roles", "SelectRole", "Roles", new { id = item.User.Id }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

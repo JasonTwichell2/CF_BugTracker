@@ -1,0 +1,41 @@
+﻿@model BugSleuth2.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 class="section-title no-margin-top">Already registered?</h2>
+<div class="panel panel-primary animated fadeInDown animation-delay-2">
+    <div class="panel-heading">Login Form</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="input-group login-input">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                </div>
+                <br>
+                <div class="input-group login-input">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+                <input type="submit" value="Log in" class="btn btn-ar btn-primary pull-right" />
+
+                <a href="#" class="social-icon-ar sm twitter animated fadeInDown animation-delay-3"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="social-icon-ar sm facebook animated fadeInDown animation-delay-5"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-icon-ar sm google-plus animated fadeInDown animation-delay-4"><i class="fa fa-google-plus"></i></a>
+                <hr>
+                
+                <a href="ForgotPassword" class="btn btn-ar btn-warning">Forgot Password</a>
+                <a href="LoginAsGuest" class="btn btn-ar btn-info pull-right">Login as Guest</a>
+                <div class="clearfix"></div>
+            </div>
+        }
+    </div>
+</div>

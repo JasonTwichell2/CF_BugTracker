@@ -1,0 +1,34 @@
+﻿@model BugSleuth2.Models.UserRolesViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SelectRole</title>
+</head>
+<body>
+        <div style="margin-left:10em">
+            @using (Html.BeginForm("SelectRole", "Roles", FormMethod.Post))
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <h3>Name</h3>
+                            <p>@Model.FirstName</p> <p>@Model.LastName</p>
+                        </div>
+                        <div class="col-xs-9 pull-left" style="margin-bottom:20px">
+                            <h3>User Roles</h3>
+                            @Html.HiddenFor(model => Model.Id)
+                            @Html.ListBox("SelectedRoles", Model.UserRoles)
+                            <br />
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            }
+                
+
+        </div>
+</body>
+</html>
+

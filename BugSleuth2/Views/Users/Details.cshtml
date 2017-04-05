@@ -1,0 +1,53 @@
+﻿@model BugSleuth2.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="wrap-primary">
+    <div class="container boxed">
+        <h2>User Details</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DisplayName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DisplayName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
