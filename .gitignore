@@ -335,7 +335,7 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-BugSleuth2/[Ww]eb.config
+# BugSleuth2/[Ww]eb.config
 
 #Will ignore all files names Private.config
 [Pp]rivate.config
